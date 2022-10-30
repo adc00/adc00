@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 //写一个同步容器粗来
 public class SynchronizedCollections<T> {
     //写一个线程安全的同步容器  支持多个线程往里面装任务 多个线程往里面消费任务
-    final private LinkedList<T> lists = new LinkedList<>();
+    final private LinkedList<T> lists = new LinkedList<T>();
     final private int MAX = 10;
-    private int count = 0;
+    private int count = 0;//count有什么意思
 
     //往容器中放任务 放元素 生产者线程
     public synchronized void put(T t) {
