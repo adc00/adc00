@@ -1,5 +1,12 @@
 package com.yc.zp.caculate;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * @Author liuyachao123
  * @Date 2022/11/1 20:51
@@ -64,8 +71,7 @@ public class ListNodeCompute {
     public int reverseNumber(int a) {
         int result = 0;
 
-        while (result%10!=0) {
-
+        while (result % 10 != 0) {
 
 
         }
@@ -74,7 +80,30 @@ public class ListNodeCompute {
     }
 
     public static void main(String[] args) {
-        int result = 635;//反转之后是536
+        int result2 = 635;//反转之后是536
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list1.add(i);
+            list2.add(i * 2);
+        }
+        List<Integer> result = Stream.of(list1, list2).flatMap(List::stream).filter(l -> l.intValue() > 3).distinct().collect(Collectors.toList());
+        result.forEach(l -> System.out.println(l));
+        result = Stream.of(list1, list2).flatMap(List::stream).distinct().collect(Collectors.toList());
+        result.forEach(l -> System.out.println(l));
+
+        List<String> list3 = new ArrayList<>();
+        list3.add("lyc1");
+        list3.add("xx2");
+        list3.add("");
+        list3.add("LYC1");
+        list3.forEach(l -> System.out.println(l));
+        System.err.println("end");
+        String testStr = "LYC1";
+//        list3.clear();
+        List<String> testStringResult = list3.stream().filter(l -> Optional.ofNullable(l)
+                .orElse(Collections.emptyList().toString()).equalsIgnoreCase(testStr)).collect(Collectors.toList());
+        testStringResult.forEach(l -> System.out.println(l));
 
 
     }
