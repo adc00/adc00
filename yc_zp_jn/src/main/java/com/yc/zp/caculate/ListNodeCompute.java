@@ -1,7 +1,6 @@
 package com.yc.zp.caculate;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -100,9 +99,12 @@ public class ListNodeCompute {
         list3.forEach(l -> System.out.println(l));
         System.err.println("end");
         String testStr = "LYC1";
+        list3.add(null);
 //        list3.clear();
-        List<String> testStringResult = list3.stream().filter(l -> Optional.ofNullable(l)
-                .orElse(Collections.emptyList().toString()).equalsIgnoreCase(testStr)).collect(Collectors.toList());
+        // List<String> testStringResult = list3.stream().filter(l -> Optional.ofNullable(l)
+        //       .orElse(Collections.emptyList().toString()).equalsIgnoreCase(testStr)).collect(Collectors.toList());
+        List<String> testStringResult = list3.stream().filter(l -> Optional.ofNullable(l).isPresent()).collect(Collectors.toList());
+
         testStringResult.forEach(l -> System.out.println(l));
 
 
