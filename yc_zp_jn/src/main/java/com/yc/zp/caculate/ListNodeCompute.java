@@ -107,7 +107,6 @@ public class ListNodeCompute {
 
         testStringResult.forEach(l -> System.out.println(l));
 
-
     }
 
 }
