@@ -92,7 +92,7 @@ public class ListNodeCompute {
         result.forEach(l -> System.out.println(l));
 
         List<String> list3 = new ArrayList<>();
-        list3.add("lyc1");
+        list3.add("lyc1 ");
         list3.add("xx2");
         list3.add("");
         list3.add("LYC1");
